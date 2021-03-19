@@ -220,7 +220,7 @@ def main():
 
   print('----- Evaluation phase -----')
   print('> test accuracy:')
-  evaluate(device, test_loader, net)
+  evaluate(device, test_loader, net,None)
   torch.save(net.cpu(), args.model_path)
 
 
