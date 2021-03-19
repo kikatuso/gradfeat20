@@ -215,7 +215,7 @@ def main():
 
   while it < args.niter:
     it = train(
-      device, train_loader, net, optimizer, 
+      device, train_loader, net,None,optimizer, 
       args.niter, args.stepsize, losses, it=it)
 
   print('----- Evaluation phase -----')
