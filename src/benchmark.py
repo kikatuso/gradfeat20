@@ -209,15 +209,19 @@ def main():
   train_loader, test_loader = load_data(
     args.dataset, args.data_path, args.batchsize, args.normalize)
   
-  print('----- Training phase -----')
-  it = 0
-  losses = AverageMeter()
+  flag=False
+  if flag:
+    net.load_state_dict(torch.load(args.model_path))
+  else:
+    print('----- Training phase -----')
+    it = 0
+    losses = AverageMeter()
 
-# TODO CHANGED NONE TO MODE
-  while it < args.niter:
-    it = train(
-      device, train_loader, net,args.mode,optimizer, 
-      args.niter, args.stepsize, losses, it=it)
+  # TODO CHANGED NONE TO MODE
+    while it < args.niter:
+      it = train(
+        device, train_loader, net,args.mode,optimizer, 
+        args.niter, args.stepsize, losses, it=it)
 # TODO CHANGED NONE TO MODE
   print('----- Evaluation phase -----')
   print('> test accuracy:')
