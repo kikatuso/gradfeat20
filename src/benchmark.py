@@ -216,12 +216,12 @@ def main():
 # TODO CHANGED NONE TO MODE
   while it < args.niter:
     it = train(
-      device, train_loader, net,mode,optimizer, 
+      device, train_loader, net,args.mode,optimizer, 
       args.niter, args.stepsize, losses, it=it)
 # TODO CHANGED NONE TO MODE
   print('----- Evaluation phase -----')
   print('> test accuracy:')
-  evaluate(device, test_loader, net,mode)
+  evaluate(device, test_loader, net,args.mode)
   # TODO CHANGED cpu() state_dict()
 
   torch.save(net.state_dict(), args.model_path)
