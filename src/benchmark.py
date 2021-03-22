@@ -213,15 +213,18 @@ def main():
   it = 0
   losses = AverageMeter()
 
+# TODO CHANGED NONE TO MODE
   while it < args.niter:
     it = train(
-      device, train_loader, net,None,optimizer, 
+      device, train_loader, net,mode,optimizer, 
       args.niter, args.stepsize, losses, it=it)
-
+# TODO CHANGED NONE TO MODE
   print('----- Evaluation phase -----')
   print('> test accuracy:')
-  evaluate(device, test_loader, net,None)
-  torch.save(net.cpu(), args.model_path)
+  evaluate(device, test_loader, net,mode)
+  # TODO CHANGED cpu() state_dict()
+
+  torch.save(net.state_dict(), args.model_path)
 
 
 if __name__ == '__main__':
