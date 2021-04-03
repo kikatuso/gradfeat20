@@ -190,8 +190,8 @@ class Net(nn.Module):
   def __init__(self, nclasses):
     super().__init__()
     self.fnet = FeatureNet()
-    self.hnet = STDHeadNet()
-    self.clf = STDClassifier(nclasses)
+    self.hnet = NTKHeadNet()
+    self.clf = NTKClassifier(nclasses)
 
   def load_fnet(self, fnet, freeze=True):
     self.fnet = fnet
