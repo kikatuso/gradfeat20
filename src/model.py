@@ -187,11 +187,16 @@ class NTKClassifier(nn.Module):
 
 class Net(nn.Module):
   """Network as either baseline or proposed method"""
-  def __init__(self, nclasses):
+  def __init__(self, nclasses,std):
     super().__init__()
-    self.fnet = FeatureNet()
-    self.hnet = NTKHeadNet()
-    self.clf = NTKClassifier(nclasses)
+    if std: 
+      self.fnet = FeatureNet()
+      self.hnet = STDHeadNet()
+      self.clf = STDClassifier(nclasses)
+    else:
+      self.fnet = FeatureNet()
+      self.hnet = NTKHeadNet()
+      self.clf = NTKClassifier(nclasses)
 
   def load_fnet(self, fnet, freeze=True):
     self.fnet = fnet
@@ -204,6 +209,7 @@ class Net(nn.Module):
     self.hnet.thaw()
     self.hnet.reinit(reinit_idx)
     self.hnet.freeze(freeze_idx)
+    print('la')
     self.hnet.linearize(linearize_idx)
 
   def load_clf(self, clf, reinit=False, linearize=False, static=True):

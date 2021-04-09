@@ -46,6 +46,8 @@ def parser_args():
   parser.add_argument('--mode', type=str, default='full',
                       choices={'full', 'actv', 'grad'}, 
                       help='features to use (default: full)')
+  parser.add_argument('--std',type=str,default=None,
+                      choices={'y',None},help='whether to use standard net or NTK net')
   parser.add_argument('--fnet_path', type=str, 
                       help='path to load fnet')
   parser.add_argument('--hnet_path', type=str, 
@@ -104,6 +106,7 @@ def train(device, loader, model, mode,
     
     if mode == 'full':
       # proposed model
+      logits, jvp = model(x)
       logits, jvp = model(x)
       logits = logits + jvp
     elif mode == 'grad':
@@ -181,7 +184,7 @@ def main():
   torch.cuda.manual_seed_all(args.seed)
   np.random.seed(args.seed)
 
-  net = Net(nclasses=args.nclass)
+  net = Net(nclasses=args.nclass,std=args.std)
   fnet = torch.load(args.fnet_path)  # feature net (theta_1)
   hnet = torch.load(args.hnet_path)  # head net (theta_2)
   clf = torch.load(args.clf_path)    # classifier (omega)
