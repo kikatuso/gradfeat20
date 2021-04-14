@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from util import *
 
-LEAK = 0.01   # for Jenson-Shannon BiGAN
-# LEAK = 0.2    # for Wasserstein BiGAN
+#LEAK = 0.01   # for Jenson-Shannon BiGAN
+LEAK = 0.2    # for Wasserstein BiGAN
 
 class FeatureNet(nn.Module):
   """Network section parametrized by theta_1"""
