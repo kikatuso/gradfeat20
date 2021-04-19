@@ -184,7 +184,7 @@ def main():
   torch.cuda.manual_seed_all(args.seed)
   np.random.seed(args.seed)
 
-  net = Net(nclasses=args.nclass,std=args.std)
+  net = Net(nclasses=args.nclass,mode=args.mode)
   fnet = torch.load(args.fnet_path)  # feature net (theta_1)
   hnet = torch.load(args.hnet_path)  # head net (theta_2)
   clf = torch.load(args.clf_path)    # classifier (omega)
