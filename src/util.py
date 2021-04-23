@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import torch.utils.data as data
-from torchvision.datasets import SVHN, CIFAR10, CIFAR100
+from torchvision.datasets import SVHN, CIFAR10, CIFAR100,STL10
 from torchvision import transforms
 
 
@@ -188,6 +188,10 @@ def load_data(dataset, path, batch_size=64, normalize=False):
     val_set = SVHN(path, split='test', transform=transform, download=True)
 
   elif dataset == 'cifar10':
+    train_set = CIFAR10(path, train=True, transform=transform, download=True)
+    val_set = CIFAR10(path, train=False, transform=transform, download=True)
+
+  elif dataset == 'stl10':
     train_set = CIFAR10(path, train=True, transform=transform, download=True)
     val_set = CIFAR10(path, train=False, transform=transform, download=True)
 
