@@ -192,8 +192,8 @@ def load_data(dataset, path, batch_size=64, normalize=False):
     val_set = CIFAR10(path, train=False, transform=transform, download=True)
 
   elif dataset == 'stl10':
-    train_set = STL10(path, train=True, transform=transform, download=True)
-    val_set = STL10(path, train=False, transform=transform, download=True)
+    train_set = STL10(path, split='train', transform=transform, download=True)
+    val_set = STL10(path, split='test', transform=transform, download=True)
 
   elif dataset == 'cifar100':
     train_set = CIFAR100(path, train=True, transform=transform, download=True)
