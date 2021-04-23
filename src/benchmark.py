@@ -19,7 +19,7 @@ def parser_args():
 
   # dataset
   parser.add_argument('--dataset', type=str, default='cifar10',
-                      choices={'cifar10', 'cifar100', 'svhn'}, 
+                      choices={'cifar10', 'cifar100', 'svhn','stl10'}, 
                       help='dataset (default: cifar10)')
   parser.add_argument('--data_path', type=str, 
                       help='path to load dataset')
