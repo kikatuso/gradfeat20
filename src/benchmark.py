@@ -20,6 +20,7 @@ def parser_args():
   # dataset
   parser.add_argument('--dataset', type=str, default='cifar10',
                       choices={'cifar10', 'cifar100', 'svhn','FashionMNIST','stl10'}, 
+
                       help='dataset (default: cifar10)')
   parser.add_argument('--data_path', type=str, 
                       help='path to load dataset')
@@ -184,7 +185,7 @@ def main():
   torch.cuda.manual_seed_all(args.seed)
   np.random.seed(args.seed)
 
-  net = Net(nclasses=args.nclass,std=args.std)
+  net = Net(nclasses=args.nclass,mode=args.mode)
   fnet = torch.load(args.fnet_path)  # feature net (theta_1)
   hnet = torch.load(args.hnet_path)  # head net (theta_2)
   clf = torch.load(args.clf_path)    # classifier (omega)
