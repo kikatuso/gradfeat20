@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import torch.utils.data as data
-from torchvision.datasets import SVHN, CIFAR10, CIFAR100,STL10, FashionMNIST
+from torchvision.datasets import SVHN, CIFAR10, CIFAR100,STL10,VOCSegmentation
 
 from torchvision import transforms
 
@@ -203,9 +203,15 @@ def load_data(dataset, path, batch_size=64, normalize=False):
   elif dataset == 'cifar100':
     train_set = CIFAR100(path, train=True, transform=transform, download=True)
     val_set = CIFAR100(path, train=False, transform=transform, download=True)
-  elif dataset == 'FashionMNIST':
-    train_set = FashionMNIST(path, train=True, transform=transform, download=True)
-    val_set = FashionMNIST(path, train=False, transform=transform, download=True)
+
+  elif dataset == 'VOC07':
+    train_set = VOCSegmentation(path, image_set='train',year='2007',transform=transform, download=True)
+    val_set = VOCSegmentation(path, image_set='val',year='2007',transform=transform, download=True)
+
+ elif dataset == 'VOC10':
+    train_set = VOCSegmentation(path, image_set='train',year='2010',transform=transform, download=True)
+    val_set = VOCSegmentation(path, image_set='val',year='2010',transform=transform, download=True)
+
 
 
   train_loader = data.DataLoader(
