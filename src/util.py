@@ -208,7 +208,7 @@ def load_data(dataset, path, batch_size=64, normalize=False):
     train_set = VOCSegmentation(path, image_set='train',year='2007',transform=transform, download=True)
     val_set = VOCSegmentation(path, image_set='val',year='2007',transform=transform, download=True)
 
- elif dataset == 'VOC10':
+  elif dataset == 'VOC10':
     train_set = VOCSegmentation(path, image_set='train',year='2010',transform=transform, download=True)
     val_set = VOCSegmentation(path, image_set='val',year='2010',transform=transform, download=True)
 
