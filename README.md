@@ -1,10 +1,13 @@
 # ICLR Reproducibility Challenge: Gradients as Features for Deep Representation Learning
 
-![alt text](https://github.com/fmu2/gradfeat20/blob/master/paper/overview.png "Method overview")
 
-This repository is forked from the original repository (https://github.com/fmu2/gradfeat20). Compared to the original repository, some minor changes have been added to the source code. Additionally all necessary config files necessary for reproducing BiGAN experiments were uploaded.
+This repository is forked from the original repository (https://github.com/fmu2/gradfeat20). Compared to the original repository, some minor changes have been added to the source code. Additionally all necessary config files for reproducing BiGAN experiments were uploaded.
 
 ## Anything from now on is a direct copy from the original repository
+
+
+![alt text](https://github.com/fmu2/gradfeat20/blob/master/paper/overview.png "Method overview")
+
 
 ## Overview
 This repository contains code for reproducing the results in [Gradients as Features for Deep Representation Learning](https://openreview.net/pdf?id=BkeoaeHKDS) published as a conference paper at ICLR 2020. The code has been tested in an conda environment with Python 3 and PyTorch >= 1.3.
