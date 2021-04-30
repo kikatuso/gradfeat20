@@ -1,8 +1,10 @@
-# Gradients as Features for Deep Representation Learning
+# ICLR Reproducibility Challenge: Gradients as Features for Deep Representation Learning
 
 ![alt text](https://github.com/fmu2/gradfeat20/blob/master/paper/overview.png "Method overview")
 
-## This code repository is under construction.
+This repository is forked from the original repository (https://github.com/fmu2/gradfeat20). Compared to the original repository, some minor changes have been added to the source code. Additionally all necessary config files necessary for reproducing BiGAN experiments were uploaded.
+
+## Anything from now on is a direct copy from the original repository
 
 ## Overview
 This repository contains code for reproducing the results in [Gradients as Features for Deep Representation Learning](https://openreview.net/pdf?id=BkeoaeHKDS) published as a conference paper at ICLR 2020. The code has been tested in an conda environment with Python 3 and PyTorch >= 1.3.
@@ -36,15 +38,3 @@ Update the loading and saving paths in the configuration files before you try ou
 
 Please note that we use a slightly different set of hyperparameters for training compared with what was originally used in the paper. In particular, we apply stochastic gradient descent (SGD) instead of ADAM as the default optimizer to repect the convention. Accordingly, we modify the learning rate scheduling since we found that it leads to faster convergence.
 
-## Contact
-[Fangzhou Mu](http://pages.cs.wisc.edu/~fmu/) (fmu2@wisc.edu)
-
-## Bibtex
-```
-@inproceedings{mu2020gradfeat,
-  title={Gradients as Features for Deep Representation Learning},
-  author={Mu, Fangzhou and Liang, Yingyu and Li, Yin},
-  booktitle={International Conference on Learning Representations (ICLR)},
-  year={2020}
-}
-```
